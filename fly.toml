@@ -1,0 +1,55 @@
+app = "core-dna-agency"
+primary_region = "iad"
+
+[build]
+dockerfile = "Dockerfile"
+
+[env]
+NODE_ENV = "production"
+
+[http_service]
+internal_port = 3001
+force_https = true
+auto_stop_machines = true
+auto_start_machines = true
+
+[[http_service.checks]]
+grace_period = "5s"
+interval = "15s"
+method = "get"
+path = "/api/health"
+protocol = "http"
+timeout = "10s"
+type = "http"
+
+[[mounts]]
+source = "storage"
+destination = "/data"
+
+[[vm]]
+cpu_kind = "shared"
+cpus = 1
+memory_mb = 512
+
+[env]
+# Platform settings
+ENABLE_N8N_WORKFLOWS = "true"
+ENABLE_CREWAI_AGENTS = "true"
+ENABLE_LANGFLOW_FLOWS = "true"
+ENABLE_ANALYTICS = "true"
+ENABLE_EXPORT = "true"
+
+# Tier-based features
+UNLOCK_AUTOMATIONS_TIER = "pro"
+UNLOCK_AGENTS_TIER = "pro"
+UNLOCK_FLOWS_TIER = "agency"
+
+# Deployment
+FLY_APP_NAME = "core-dna-agency"
+
+# To set secrets, run:
+# fly secrets set GEMINI_API_KEY=your_key
+# fly secrets set OPENAI_API_KEY=your_key
+# fly secrets set RESEND_API_KEY=your_key
+# fly secrets set TWITTER_API_KEY=your_key
+# etc.

@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dna-primary: #8b5cf6;
+  --dna-secondary: #ec4899;
+  --dna-accent: #06b6d4;
+}
+
+/* Custom color utilities for dna-primary */
+.bg-dna-primary { background-color: var(--dna-primary); }
+.text-dna-primary { color: var(--dna-primary); }
+.border-dna-primary { border-color: var(--dna-primary); }
+.from-dna-primary { --tw-gradient-from: var(--dna-primary); }
+.to-dna-primary { --tw-gradient-to: var(--dna-primary); }
+.shadow-dna-primary { --tw-shadow-color: var(--dna-primary); }
+.focus\:ring-dna-primary:focus { --tw-ring-color: var(--dna-primary); }
+
+/* Custom color utilities for dna-secondary */
+.bg-dna-secondary { background-color: var(--dna-secondary); }
+.text-dna-secondary { color: var(--dna-secondary); }
+.border-dna-secondary { border-color: var(--dna-secondary); }
+.from-dna-secondary { --tw-gradient-from: var(--dna-secondary); }
+.to-dna-secondary { --tw-gradient-to: var(--dna-secondary); }
+
+/* Custom color utilities for dna-accent */
+.bg-dna-accent { background-color: var(--dna-accent); }
+.text-dna-accent { color: var(--dna-accent); }
+.border-dna-accent { border-color: var(--dna-accent); }
+
+/* Opacity variants */
+.bg-dna-primary\/5 { background-color: rgba(139, 92, 246, 0.05); }
+.bg-dna-primary\/10 { background-color: rgba(139, 92, 246, 0.1); }
+.bg-dna-primary\/20 { background-color: rgba(139, 92, 246, 0.2); }
+.shadow-dna-primary\/5 { box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.05); }
+.shadow-dna-primary\/30 { box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.3); }
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.8);
+}
