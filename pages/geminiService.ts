@@ -13,9 +13,12 @@ const getSettings = (): GlobalSettings => {
     }
     // Minimal fallback - empty API key, user will add it via Settings page
     return {
-        activeLLM: 'google',
+        activeLLM: 'deepseek',
         activeImageGen: 'google',
-        llms: { google: { provider: 'google', enabled: true, apiKey: '' } },
+        llms: {
+          google: { provider: 'google', enabled: true, apiKey: '' },
+          deepseek: { provider: 'deepseek', enabled: true, apiKey: 'proxied', defaultModel: 'deepseek-chat', baseUrl: '/api/ai/chat/completions' }
+        },
         image: { google: { provider: 'google', enabled: true, apiKey: '' } },
         voice: {},
         workflows: {},
